@@ -5,8 +5,8 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["FrontEndWeb/FrontEndWeb.csproj", "FrontEndWeb/"]
-RUN dotnet restore "FrontEndWeb/FrontEndWeb.csproj"
+COPY ["FrontEndWeb.csproj", "FrontEndWeb/"]
+RUN dotnet restore "FrontEndWeb.csproj"
 COPY . .
 WORKDIR "/src/FrontEndWeb"
 RUN dotnet build "FrontEndWeb.csproj" -c Release -o /app
